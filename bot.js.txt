@@ -1,0 +1,19 @@
+const mineflayer = require('mineflayer')
+
+const bot = mineflayer.createBot({
+  host: 'XaryaanX.play.hosting', // example: play.host1234.play.host
+  port: 25565,
+  username: 'AFK_Bot',    // any unused name
+  version: false,         // auto-detect version
+  auth: 'offline'         // use offline for TLauncher
+})
+
+bot.on('spawn', () => {
+  console.log('✅ Bot joined successfully!')
+  bot.chat('AFK bot online 24/7!')
+})
+
+bot.on('end', () => {
+  console.log('Bot disconnected, reconnecting in 10s...')
+  setTimeout(() => process.exit(0), 10000)
+})
